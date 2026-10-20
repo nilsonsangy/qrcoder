@@ -1,0 +1,25 @@
+[project]
+name = "qrcoder"
+version = "1.0.0"
+description = "Command-line tool that generates QR Code images from a link, with an optional centered logo."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Nilson" }]
+dependencies = [
+    "qrcode==8.2",
+    "Pillow==13.0.0",
+]
+
+[project.scripts]
+qrcoder = "qrcoder:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["qrcoder.py"]
+
+[tool.hatch.build.targets.sdist]
+include = ["qrcoder.py", "README.md", "LICENSE"]
